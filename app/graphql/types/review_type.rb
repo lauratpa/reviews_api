@@ -6,7 +6,7 @@ class Types::ReviewType < Types::BaseUnion
     if object.is_a?(HotelReview)
       Types::HotelReviewType
     else object.is_a?(RestaurantReview)
-      Types::RestaurantReviewType
+         Types::RestaurantReviewType
     end
   end
 end
