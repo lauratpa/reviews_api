@@ -1,9 +1,9 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe 'authentification', type: :request do
-  context 'when the correct api key is given' do
-    it 'succeeds' do
-      headers = { 'X-Api-key' => Rails.application.credentials.api_secret }
+RSpec.describe "authentification", type: :request do
+  context "when the correct api key is given" do
+    it "succeeds" do
+      headers = { "X-Api-key" => Rails.application.credentials.api_secret }
       params = {
         "query" => "query {\n  authors {\n    id\n    name\n  }\n}",
         "variables" => nil
@@ -15,9 +15,9 @@ RSpec.describe 'authentification', type: :request do
     end
   end
 
-  context 'when an incorrect api key is given' do
-    it 'fails' do
-      headers = { 'X-Api-key' => "wrong" }
+  context "when an incorrect api key is given" do
+    it "fails" do
+      headers = { "X-Api-key" => "wrong" }
       params = {
         "query" => "query {\n  authors {\n    id\n    name\n  }\n}",
         "variables" => nil

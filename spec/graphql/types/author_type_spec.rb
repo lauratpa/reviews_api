@@ -11,16 +11,15 @@ RSpec.describe Types::QueryType do
       })
     end
 
-
     it "returns all items" do
       authors = [
         Author.create!(name: "Joe"),
-        Author.create!(name: "Jill"),
+        Author.create!(name: "Jill")
       ]
       result = ReviewsApiSchema.execute(query).as_json
 
       expect(result.dig("data", "authors")).to match_array(
-        authors.map { |author| { "id" => author.id.to_s, "name" => author.name }}
+        authors.map { |author| { "id" => author.id.to_s, "name" => author.name } }
       )
     end
   end
