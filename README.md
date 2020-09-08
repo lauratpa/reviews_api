@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Entities
 
-Things you may want to cover:
+HotelReview
+- id
+- content StringReview, min 10 chars
+- author Author
+-
+RestaurantReview
+- id
+- content IntRangeReview, values between 1 and 5
+- author Author
 
-* Ruby version
+Authors
+- id
+- name
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 1. Add mutation for adding reviews
+## 2. Add query for getting all the reviews
