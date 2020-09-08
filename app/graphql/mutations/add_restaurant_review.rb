@@ -1,14 +1,13 @@
 module Mutations
-  class AddHotelReview < Mutations::BaseMutation
-    # I'm fairly confident that there is a way to add the min 10 chars requirement here as well
+  class AddRestaurantReview < Mutations::BaseMutation
     argument :review, String, required: true
     argument :author, String, required: true
 
-    type Types::HotelReviewType
+    type Types::RestaurantReviewType
 
     def resolve(params)
       author = Author.find_by!(name: params[:author])
-      HotelReview.create!(review: params[:review], author: author)
+      RestaurantReview.create!(review: params[:review], author: author)
     rescue ActiveRecord::RecordInvalid => e
       GraphQL::ExecutionError.new(
         "Invalid attributes for #{e.record.class}:"\
